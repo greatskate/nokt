@@ -1,0 +1,14 @@
+{
+  "name": "nokt",
+  "version": "0.0.3",
+  "description": "A module for help make postgresql database",
+  "main": "index.js",
+  "scripts": {
+    "nokt-create": "./test.js"
+  },
+  "bin": {
+    "nokt-create": "./test.js"
+  },
+  "author": "NoD Studio",
+  "license": "ISC"
+}
