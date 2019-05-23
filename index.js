@@ -1,21 +1,21 @@
 
 var fs = require('fs');
 
-require.extensions['.txt'] = function (module, filename) {
-    module.exports = fs.readFileSync(filename, 'utf8');
-};
-
-var words = require("./try.txt");
 var directories = fs.readdirSync(__dirname+"/projects_files",{withFileTypes:true});
 
-module.exports.test=function(projectName){
+module.exports.test=async function(projectName){
 
-  fs.mkdirSync(projectName);
-  createHierarchy(projectName,"",directories)
+  await fs.mkdirSync(projectName);
+  await createHierarchy(projectName,"",directories);
+  await console.log( "------- Nokt Project Created -------");
+  await console.log( "cd "+projectName);
+  await console.log( "npm install");
+  await console.log( "npm start");
+  await console.log( "------------------------------------");
 }
 
 
-function createHierarchy(projectName,path,dirs){
+async function createHierarchy(projectName,path,dirs){
   if(dirs.length===0){
     return true;
   }
@@ -25,11 +25,11 @@ function createHierarchy(projectName,path,dirs){
       let newPathSource = __dirname+"/projects_files/"+newPath;
       let newPathDestination = projectName+"/"+newPath;
       if (dirs[i].isDirectory()){
-        fs.mkdirSync(newPathDestination);
-        createHierarchy(projectName,newPath,fs.readdirSync(newPathSource,{withFileTypes:true}));
+        await fs.mkdirSync(newPathDestination);
+        await createHierarchy(projectName,newPath,await fs.readdirSync(newPathSource,{withFileTypes:true}));
       }
       else{
-        fs.copyFile(newPathSource,newPathDestination,async (err)=>{
+        await fs.copyFile(newPathSource,newPathDestination,async (err)=>{
           if (err) throw err;
           console.log("- file "+newPath+" has been created");
           await fs.readFile(newPathDestination,'utf8', async function(err, data) {
@@ -43,7 +43,6 @@ function createHierarchy(projectName,path,dirs){
               newData += newStrings[newStrings.length-1];
               await fs.writeFile(newPathDestination,newData,function (err) {
                 if (err) throw err;
-                console.log('Project Name Replaced!');
               })
             }
             return true;
