@@ -52,3 +52,9 @@ create = async ()=>{
   });
 }
 ```
+### Start Project with Nodemon
+
+```shell
+> nodemon
+```
+
