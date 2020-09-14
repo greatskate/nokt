@@ -58,3 +58,8 @@ create = async ()=>{
 > nodemon
 ```
 
+## What it does ?
+
+It creates a complete REST API. Where all files are readable and editable for possible optimizations.
+It also synchronizes the project files by directly editing the files concerned
+
