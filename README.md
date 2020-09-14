@@ -10,12 +10,13 @@ A tool for REST API in nodejs and postgresql
 ### Create application
 In you project directory:
 ```shell
-npx noktjs createApp [appName]
+> npx noktjs createApp [appName]
 ```
 
 ### Create Model
 
 In the models directory in application.
+
 *models/video.js*
 ```javascript
 const {Model} = require('noktjs');
