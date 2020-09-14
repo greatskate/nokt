@@ -1,4 +1,4 @@
-# nokt
+# NoktJS
 A tool for REST API in nodejs and postgresql
 ==============================================
 
