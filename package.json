@@ -1,14 +1,20 @@
 {
-  "name": "nokt",
-  "version": "0.0.3",
-  "description": "A module for help make postgresql database",
+  "name": "noktjs",
+  "version": "0.0.1",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "nokt-create": "./test.js"
+    "create": "node create.js",
+    "create-app": "node create-app.js"
   },
   "bin": {
-    "nokt-create": "./test.js"
+    "create": "create.js",
+    "createapp": "create-app.js"
   },
-  "author": "NoD Studio",
-  "license": "ISC"
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "ora": "^5.0.0"
+  }
 }
