@@ -1,4 +1,4 @@
-# NoktJS >WORK IN PROGRESS<
+# NoktJS >WORK IN PROGRESS< >COMMAND DOESN'T WORK<
 A tool for REST API in nodejs and postgresql
 ==============================================
 
