@@ -1,6 +1,9 @@
 /* Import Models */
+const AuthentificationModels = require('./apps/authentification/models');
 /* End Import Models */
 
 module.exports.create = () => new Promise((succes, fail) => {
-    /* AUTOMATIC SYNC */
+    AuthentificationModels.sync().then(()=>{
+        /* AUTOMATIC SYNC */
+    })
 });

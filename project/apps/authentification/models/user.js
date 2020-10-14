@@ -8,7 +8,7 @@ const UserTemplate = {
     password: Model.text(),
     last_name: Model.charfield(50),
     first_name: Model.charfield(50),
-    group: Model.foreignKey(GroupTemplate)
+    group_id: Model.foreignKey(GroupTemplate)
 }
 
 module.exports.UserTemplate = UserTemplate;

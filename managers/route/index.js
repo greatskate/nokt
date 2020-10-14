@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 var fs = require('fs');
 
 
@@ -22,6 +23,9 @@ module.exports.createRoutes = (model, appName) => new Promise((succes, fail) => 
                             fs.writeFile('../routes.js', newData, (err)=>{
                                 if (err){
                                     throw err;
+                                }
+                                if (!appName){
+                                    chalk.red('Appname was not defined, You need to rename your route in routes files!')
                                 }
                                 succes();
                             });

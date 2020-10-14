@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 
 /* Apps Routers import */
-
+const Authentification = require('../apps/authentification/routes');
 /* End Routers Import */
 
 const router = express.Router();
@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
 });
 
 /* Apps Routers Use */
-
+Authentification.routes(router, middleware);
 /* End Routers Use */
 
 module.exports = router;

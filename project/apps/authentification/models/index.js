@@ -14,16 +14,8 @@ const create = async () =>{
   await createModel(UserTemplate);
 }
 const sync = () => new Promise((succes, fail) => {
-    GroupModel.createTable().then(()=>{
-      GroupModel.insert("Admin", true).then(
-        ()=>{
-          GroupModel.insert("User", false).then(succes);
-        }
-      )
     UserModel.createTable().then(()=>{
     /* Create Table */
-})
-
 })
 
   });
