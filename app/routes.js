@@ -3,7 +3,6 @@ const { builder } = require('./main');
 /* IMPORT REST HANDLERS */
 /* END REST HANDLERS */
 
-builder();
 const routes = (router, middleware) => {
     router.get('/[@appName]/',(req,res) => {
         res.send('[@appName] routes Works !')

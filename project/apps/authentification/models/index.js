@@ -13,18 +13,17 @@ const create = async () =>{
   await createModel(GroupTemplate);
   await createModel(UserTemplate);
 }
-const sync = () => new Promise((succes, fail) => {
-    UserModel.createTable().then(()=>{
+const sync = () => new Promise(async (succes, fail) => {
+    await GroupModel.createTable();
+    await UserModel.createTable();
     /* Create Table */
-})
-
+    succes();
   });
+
 module.exports.sync = sync;
 module.exports.createModels = create;
 module.exports.Group = Group;
 module.exports.GroupModel = GroupModel;
-
-
 module.exports.User = User;
 module.exports.UserModel = UserModel;
 

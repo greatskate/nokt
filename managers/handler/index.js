@@ -36,7 +36,7 @@ module.exports.createHandler = (model) => new Promise((succes, fail) => {
             });
         }
         else{
-
+            succes();
         }
     })
 });

@@ -1,4 +1,4 @@
-# NoktJS >WORK IN PROGRESS< >COMMAND DOESN'T WORK<
+# NoktJS >WORK IN PROGRESS<
 A tool for REST API in nodejs and postgresql
 ==============================================
 
@@ -47,15 +47,36 @@ create = async ()=>{
 ```javascript
 create = async ()=>{
 /* Create model */
-  await createHandler(VideoTemplate).then(()=>{
-    createRoutes(VideoTemplate, appName);
+  await createHandler(VideoTemplate).then(async ()=>{
+    await createRoutes(VideoTemplate, appName);
   });
 }
 ```
+### Configure Postgresql DB
+
+*.env
+```
+PGUSER=dbuser
+PGHOST=database.server.com
+PGPASSWORD=secretpassword
+PGDATABASE=mydb
+PGPORT=3211
+```
+
+### Build Project
+```shell
+npm run build
+```
+
+### create DB
+```shell
+npm run create-db
+```
+
 ### Start Project with Nodemon
 
 ```shell
-> nodemon
+> npm start
 ```
 
 ## What it does ?

@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-      "start": "./index.js"
+      "start": "nodemon",
+      "build": "node build.js",
+      "create-db":"node db.js"
     },
     "dependencies": {
     }

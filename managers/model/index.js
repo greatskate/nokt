@@ -32,9 +32,8 @@ module.exports.createModel = (model) => new Promise((succes, fail) => {
                             const spliter = data.split('/* Model Import End */')
                             const subSpliter = spliter[1].split('/* Create Table */');
                             let newData = spliter[0] + `const { ${model.nameModel.charAt(0).toUpperCase() + model.nameModel.slice(1)}, ${model.nameModel.charAt(0).toUpperCase() + model.nameModel.slice(1)}Model } = require('./build/${model.nameModel.toLowerCase()}');
-/* Model Import End */` + subSpliter[0] + `${model.nameModel.charAt(0).toUpperCase() + model.nameModel.slice(1)}Model.createTable().then(()=>{
+/* Model Import End */` + subSpliter[0] + `await ${model.nameModel.charAt(0).toUpperCase() + model.nameModel.slice(1)}Model.createTable();
     /* Create Table */
-})
 ` + subSpliter[1] +`
 module.exports.${model.nameModel} = ${model.nameModel};
 module.exports.${model.nameModel}Model = ${model.nameModel}Model;
@@ -52,7 +51,7 @@ module.exports.${model.nameModel}Model = ${model.nameModel}Model;
             });
         }
         else{
-
+            succes();
         }
     })
 });

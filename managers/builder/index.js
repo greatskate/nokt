@@ -26,7 +26,7 @@ async function createProject(projectName){
         executeShell("npm install -g nodemon")
         .then(()=>{
             
-            executeShell("npm link noktjs")
+            executeShell("npm install noktjs")
             throbber.stop();
             console.log(`${chalk.green('Dependencies Downloaded !')}`)
             console.log('');
@@ -46,6 +46,7 @@ async function createApp(appName){
         await createHierarchyApp(appName, '', app)
         connectRouter(appName);
         connectDB(appName);
+        connectBuilder(appName);
     });
 }
 /*
@@ -206,6 +207,33 @@ const connectDB = (app) => new Promise((succes, fail)=>{
     }
 );` + subSpliter[1];
             fs.writeFile('./db.js',newData,(err)=>{
+                if (err){
+                    fail(err);
+                    throw err;
+                }
+                succes();
+            });
+        }
+        else{
+            fail("Balise End Import Models or AUTOMATIC SYNC not found !")
+        }
+    })
+});
+const connectBuilder = (app) => new Promise((succes, fail)=>{
+    fs.readFile('./build.js','utf8',(err, data)=>{
+        if (err){
+            throw err;
+        }
+        if (data.includes('/* End Import Models */') && data.includes('/* AUTOMATIC SYNC */')){
+            const spliter = data.split('/* End Import Models */')
+            const subSpliter = spliter[1].split('/* AUTOMATIC SYNC */');
+            let newData = spliter[0] + `const ${app.charAt(0).toUpperCase() + app.slice(1)}Builder = require('./apps/${app}/main');
+/* End Import Models */` + subSpliter[0] + `${app.charAt(0).toUpperCase() + app.slice(1)}Builder.build().then(
+    ()=>{
+        /* AUTOMATIC SYNC */
+    }
+);` + subSpliter[1];
+            fs.writeFile('./build.js',newData,(err)=>{
                 if (err){
                     fail(err);
                     throw err;

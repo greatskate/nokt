@@ -4,7 +4,6 @@ const { builder } = require('./main');
 const { UserRestHandlers } = require('./handlers');
 /* END REST HANDLERS */
 
-builder();
 const routes = (router, middleware) => {
     router.get('/authentification/',(req,res) => {
         res.send('authentification routes Works !')
