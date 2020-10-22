@@ -9,6 +9,9 @@ const app = express();
 
 const index = require('./routes/index')
 
+app.set('views','routes/html');
+app.set('view engine','ejs');
+app.use(express.static(__dirname + '/public'));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(index);

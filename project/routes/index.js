@@ -10,7 +10,7 @@ const router = express.Router();
 const middleware = require('../middleware');
 
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname)+'/html/index.html');
+  res.render('index', {project:"[@]name"});
 });
 
 /* Apps Routers Use */

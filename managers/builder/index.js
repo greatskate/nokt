@@ -21,7 +21,7 @@ async function createProject(projectName){
     console.log('');
     await process.chdir('./'+projectName);
     const throbber = ora("Downloading dependencies...").start();
-    executeShell("npm install express bcrypt body-parser cors dotenv jsonwebtoken pg")
+    executeShell("npm install express bcrypt body-parser cors dotenv jsonwebtoken pg ejs")
     .then(()=>
         executeShell("npm install -g nodemon")
         .then(()=>{
