@@ -28,6 +28,22 @@ const UserRestHandlers = {
             throw err;
         });
     },
+    createSuperUser: (req, res) =>{
+        console.log(req.body)
+        GroupModel.select("name='Admin'").then((groups)=>{
+            UserModel.select(`group_id=${groups[0].id}`).then((users)=>{
+                if (users.length === 0){
+                    UserModel.insert(req.body.pseudo, req.body.email, req.body.password, req.body.last_name, req.body.first_name, groups[0].id)
+                    .then((object)=>{
+                        res.send(object);
+                    })
+                    .catch((err)=>{
+                        throw err;
+                    });
+                }
+            })
+        })
+    },
     put: (req, res) =>{
         UserModel.update(req.body, `id = ${req.params.id}`)
         .then((object)=>{

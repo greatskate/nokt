@@ -5,34 +5,37 @@
   <title>Welcome to NoktJS</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven Pro">
 
-  <link href="/styles/style.css" rel="stylesheet" type="text/css">
+  <link href="/admin/styles/style.css" rel="stylesheet" type="text/css">
+  <script src="/admin/scripts/main.js"></script>
 </head>
 <body>
-    <img src='/img/logo_3.png' alt='NoktJS' class="logo" />
+    <img src='/admin/img/logo_3.png' alt='NoktJS' class="logo" />
     <h1><strong class="project"><%= project %></strong> is working !</h1>
-    <div class="admin_creation_block">
-      <h2>CREATE THE FIRST ADMIN ACCOUNT !</h2>
-      <form>
-        <input type="text" placeholder="USERNAME"/>
-        <input type="password" placeholder="PASSWORD"/>
-        <button type="submit" class="submit"><div>REGISTER</div></button>
-      </form>
-    </div>
+    <% if (!hasAdmin) { %>
+      <div class="admin_creation_block">
+        <h2>CREATE THE FIRST ADMIN ACCOUNT !</h2>
+        <form id="super_user">
+          <input type="text"  id="pseudo" placeholder="USERNAME"/>
+          <input type="password" id="password" placeholder="PASSWORD"/>
+          <button type="submit" class="submit"><div>REGISTER</div></button>
+        </form>
+      </div>
+    <% } %>
     <div class="stats">
       <div class="documentation">
-        <img alt="Documentation" src="/img/documentation.png" />
+        <img alt="Documentation" src="/admin/img/documentation.png" />
         <span>Documentation</span>
       </div>
       <div class="tutorial">
-        <img alt="Tutorial" src="/img/tutorial.png" />
+        <img alt="Tutorial" src="/admin/img/tutorial.png" />
         <span>Tutorials</span>
       </div>
       <div class="contribute">
-        <img alt="Github" src="/img/github.svg" />
+        <img alt="Github" src="/admin/img/github.svg" />
         <span>Contribute</span>
       </div>
       <div class="donate">
-        <img alt="Github" src="/img/donate.png" />
+        <img alt="Github" src="/admin/img/donate.png" />
         <span>Donate</span>
       </div>
     </div>

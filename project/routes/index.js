@@ -9,8 +9,14 @@ const router = express.Router();
 
 const middleware = require('../middleware');
 
+
 router.get('/', (req, res) => {
-  res.render('index', {project:"[@]name"});
+  GroupModel.select("name='Admin'").then((groups)=>{
+    UserModel.select(`group_id=${groups[0].id}`).then((users)=>{
+      const hasAdmin = users.length > 0;
+      res.render('index', {project:"[@]name", hasAdmin: hasAdmin});
+    })
+  })
 });
 
 /* Apps Routers Use */

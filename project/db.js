@@ -1,3 +1,4 @@
+require('dotenv').config();
 /* Import Models */
 const AuthentificationModels = require('./apps/authentification/models');
 /* End Import Models */

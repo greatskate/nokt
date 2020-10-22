@@ -61,6 +61,7 @@ PGHOST=database.server.com
 PGPASSWORD=secretpassword
 PGDATABASE=mydb
 PGPORT=3211
+ACCESS_TOKEN_SECRET=GENERATETOKEN
 ```
 
 ### Build Project
