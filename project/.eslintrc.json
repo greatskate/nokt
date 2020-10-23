@@ -1,42 +1,42 @@
 {
-    "extends": "airbnb",
-    "rules": {
-      "no-console":"off",
-      "func-names": "off",
-      "class-methods-use-this": "off",
-      "no-nested-ternary": "off",
-      "dot-notation": "off",
-      "camelcase": "off",
-      "consistent-return": "off",
-      "no-use-before-define":"off",
-      "import/no-named-as-default": 0,
-      "no-loop-func":"off",
-      "linebreak-style":"off",
-      "max-len": [
-        "error",
-        {
-          "code": 200
-        }
-      ]
+  "extends": "airbnb",
+  "rules": {
+    "no-console":"off",
+    "func-names": "off",
+    "class-methods-use-this": "off",
+    "no-nested-ternary": "off",
+    "dot-notation": "off",
+    "camelcase": "off",
+    "consistent-return": "off",
+    "no-use-before-define":"off",
+    "import/no-named-as-default": 0,
+    "no-loop-func":"off",
+    "linebreak-style":"off",
+    "no-plusplus":"off",
+    "no-shadow":"off",
+    "no-await-in-loop":"off",
+    "no-restricted-syntax": "off",
+    "no-async-promise-executor":"off"
+  },
+  "plugins": [
+    "import"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": false
     },
-    "plugins": [
-      "import"
-    ],
-    "parserOptions": {
-      "ecmaFeatures": {
-        "jsx": false
-      },
-      "ecmaVersion": 6
-    },
-    "env": {
-      "browser": true,
-      "node": true,
-      "jasmine": true
-    },
-    "parser": "babel-eslint",
-    "globals": {
-      "window": true,
-      "document": true,
-      "Blob": true
-    }
-   }
+    "ecmaVersion": 6
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "window": true,
+    "document": true,
+    "Blob": true
+  }
+ }
+ 

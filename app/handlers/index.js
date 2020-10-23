@@ -4,9 +4,8 @@ const { createHandler } = require('noktjs');
 
 /* Handlers Import End */
 
-
-const create = async () =>{
-    process.chdir(__dirname);
-}
+const create = async () => {
+  process.chdir(__dirname);
+};
 module.exports.createRestHandlers = create;
 /* Export REST */
