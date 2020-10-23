@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Welcome to NoktJS</title>
+  <title><%= project %> API</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Maven Pro">
 
   <link href="/admin/styles/style.css" rel="stylesheet" type="text/css">
@@ -11,15 +11,19 @@
 <body>
     <img src='/admin/img/logo_3.png' alt='NoktJS' class="logo" />
     <h1><strong class="project"><%= project %></strong> is working !</h1>
-    <% if (!hasAdmin) { %>
-      <div class="admin_creation_block">
-        <h2>CREATE THE FIRST ADMIN ACCOUNT !</h2>
-        <form id="super_user">
-          <input type="text"  id="pseudo" placeholder="USERNAME"/>
-          <input type="password" id="password" placeholder="PASSWORD"/>
-          <button type="submit" class="submit"><div>REGISTER</div></button>
-        </form>
-      </div>
+    <% if (database==='offline'){ %>
+      <span class="warning">WARNING : The Database isn't connected !</span>
+    <% } else {%>
+      <% if (!hasAdmin) { %>
+        <div class="admin_creation_block">
+          <h2>CREATE THE FIRST ADMIN ACCOUNT !</h2>
+          <form id="super_user">
+            <input type="text"  id="pseudo" placeholder="USERNAME"/>
+            <input type="password" id="password" placeholder="PASSWORD"/>
+            <button type="submit" class="submit"><div>REGISTER</div></button>
+          </form>
+        </div>
+      <% } %>
     <% } %>
     <div class="stats">
       <div class="documentation">
